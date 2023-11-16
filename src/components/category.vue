@@ -9,7 +9,7 @@
 
 <script>
     export default{
-        name: "tescategoruy",
+        name: "category",
         props: {
             img: String,
             pname: String,

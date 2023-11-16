@@ -1,17 +1,17 @@
 <template>
     <div class = "flex items-center relative w-[505px] h-[300px] rounded-md mr-7 shadow-md" :style="{backgroundColor: bg}">
-        <img class="mt-[95px]  w-[400px] h-[200px]"  :src="img" alt="">
+        <img class="mt-[95px] ml-[60px] w-[400px] h-[200px]"  :src="img" alt="">
         <div class = "w-[271px] h-[48px] absolute left-[48px] top-[75px] font-quicksand font-semibold text-24">{{ quote }}</div>
-        <favoriteBtn class="absolute top-[190px] left-[48px] border-none rounded-3" :btnBg="btncolor"> </favoriteBtn>
+        <shopnow class="absolute top-[190px] left-[45px] border-none rounded-3" :btnBg="btncolor"></shopnow>
     </div>
 </template>
 
 <script>
-import favoriteBtn from './favoriteBtn.vue'
+import shopnow from './shopnow.vue'
     export default{
-        name: "FavoriteBuff",
+        name: "promotion",
         components:{
-            favoriteBtn,
+            shopnow,
         },
         props: {
             bg : String,

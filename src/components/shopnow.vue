@@ -13,7 +13,7 @@
     library.add(fas);
 
     export default{
-        name: "favoriteBtn",
+        name: "shopnow",
         components: {
             FontAwesomeIcon,
         },

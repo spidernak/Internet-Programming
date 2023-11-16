@@ -33,24 +33,22 @@
 <template>
     <div class="flex flex-col m-20">
       <div class=" flex flex-row ">
-        <testcategory
-        v-for="i in testcategory"
-        :img ="i.img"
-        :pname ="i.pname"
-        :bc ="i.bc"
-        :amount ="i.amount"
-        >  
-        </testcategory>
+        <category
+          v-for="i in category"
+          :img ="i.img"
+          :pname ="i.pname"
+          :bc ="i.bc"
+          :amount ="i.amount"
+        ></category>
       </div>
         <div class = "flex flex-row mt-5">
-        <FavoriteBuff
-        v-for = "a in FavoriteBuff"
-        :img="a.img"
-        :bg = "a.bg"
-        :quote = "a.quote"
-        :btncolor = "a.btnBg">
-        </FavoriteBuff>
-       
+          <promotion
+            v-for = "a in promotion"
+            :img="a.img"
+            :bg = "a.bg"
+            :quote = "a.quote"
+            :btncolor = "a.btnBg"
+          ></promotion>
       </div>
     </div>
 
@@ -58,16 +56,17 @@
 
 <script>
 
-import testcategory from './components/testcategory.vue';
-import FavoriteBuff from './components/FavoriteBuff.vue';
+ import category from './components/category.vue';
+ import promotion from './components/promotion.vue';
  export default{
   name: "App",
   components:{
-    testcategory, FavoriteBuff,
+    category,
+    promotion,
   },
   data(){
     return{
-      testcategory:[
+      category:[
       {
               img: "https://s3-alpha-sig.figma.com/img/8370/e915/8a586f746c0b10b70cd405c8aa1f2038?Expires=1701043200&Signature=nuVEq7Nzd19AIxIRLLEjSJVotSwf1Q0KQbNAiYbVgkNE3TOSq~ucJVycCTxCBYmbQQdUFEH5WfXShv-62DUKyiJPEpJD29tHB87AHvsFgxqc1iCXQ2L-10rCI~VY5yKs4GnpjD98VMyHdWy8aZo47gyn~IHBalBQRlRe5DUcvWVHazK98rv7d5gj3VyJgV7vjk6-8~EUVgXeP~chDa0uHx-PW7MZj3rr6~iZKQg9flxnR0FZ9w-CdzTmTf6YIn0i3UmwLbVzguHod5Oc-IYPVZ686Of4bNdPQQ6HEenKixqLqqLwAeF7MY4hsEpOzuL5Er2qhQBD2ysc79Qrw48x3Q__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4",              
               bc: "rgba(242, 252, 228, 1)",
@@ -130,7 +129,7 @@ import FavoriteBuff from './components/FavoriteBuff.vue';
             },
              
       ],
-      FavoriteBuff: [
+      promotion: [
             {
               img: "https://s3-alpha-sig.figma.com/img/de8c/488a/87b9ce16acd7436a6dec758331c840bc?Expires=1701043200&Signature=KTQ6UT7xs25QzKumnJcNy7NIVYVdwgOUFSX~AUvPFz8514~r8UatAOz795d4E5JNCb97aRbueCvhTxnBO2P0rn-SQfilERq~DisE6dd~EML0Lt8IvBNG4COxhP0ou07cuCD6Rm-oMSZSv655jP1EHxdykfaB9YDcOyGQIId4~Y~9ZabZGP0IZ2UG~9tAdSKPkW1vbixUNzb30Oro-bhEPxpIhj93vFJZrUetetLqBynpiBfJ-bMSlJ2omjRU-n8K8cjxUbgRMkz8tEj~BenVCeXPVvCRoqnya7QP-jbi1FMhCSapp2KL8TVMAqLqCPtgAa0Ptb5lzsaWw-2Rp~8jUg__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4",
               bg: "rgba(240, 232, 213, 1)",
