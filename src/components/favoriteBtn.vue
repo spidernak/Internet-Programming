@@ -1,6 +1,6 @@
- <template>
-    <button :style="{backgroundColor:btncolor}">
-        <p class="font-bold text-[12px]">Shop Now</p>
+<template>
+    <button class="text-white flex items-center flex-row p-2.5 w-[120px] h-[30px] rounded-md" :style="{backgroundColor:btnBg}">
+        <p class="text-[12px] font-bold">Shop Now</p>
         <font-awesome-icon :icon="['fas', 'arrow-right']" style="color: white; margin-left: 15px;"/>
     </button>
  </template>
@@ -13,17 +13,17 @@
     library.add(fas);
 
     export default{
-        name: "Promotion",
+        name: "favoriteBtn",
         components: {
             FontAwesomeIcon,
         },
         props:{
-            btncolor: String,
+            btnBg: String,
         }
     };
 </script>
 
 <style scoped>
-     /* @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans&family=Lato:ital,wght@0,300;0,400;1,300&family=Quicksand:wght@300;400;700&display=swap'); */
+     @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans&family=Lato:ital,wght@0,300;0,400;1,300&family=Quicksand:wght@300;400;700&display=swap');
 
 </style>
