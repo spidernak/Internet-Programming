@@ -1,30 +1,62 @@
 <template>
-    <div class = "flex items-center relative w-[505px] h-[300px] rounded-md mr-7 shadow-md" :style="{backgroundColor: bg}">
-        <img class="mt-[95px] ml-[60px] w-[400px] h-[200px]"  :src="img" alt="">
-        <div class = "w-[271px] h-[48px] absolute left-[48px] top-[75px] font-quicksand font-semibold text-24">{{ quote }}</div>
-        <shopnow class="absolute top-[190px] left-[45px] border-none rounded-3" :btnBg="btncolor"></shopnow>
+    <div class="Cards-Box" :style="{ backgroundColor: bg }">
+      <div>
+        <div class="Text">{{ Text }}</div>
+        <div class="btn">
+          <shopnow :bgBtn="bgBtn" :TextBtn="TextBtn" />
+        </div>
+      </div>
+      <img class="Img" :src="Img" alt="Item" />
     </div>
-</template>
-
-<script>
-import shopnow from './shopnow.vue'
-    export default{
-        name: "promotion",
-        components:{
-            shopnow,
-        },
-        props: {
-            bg : String,
-            img: String,
-            quote: String,
-            btncolor: String
-        }
-    }
-
-</script>
-<style scoped>
-    @import url("https://fonts.googleapis.com/css2?family=Josefin+Sans&family=Lato:ital,wght@0,300;0,400;1,300&family=Quicksand:wght@300;400;700&display=swap");
-
-     
-   
-</style>
+  </template>
+  
+  <script>
+    import shopnow from './shopnow.vue';
+export default {
+    name: "promotion",
+  
+    props: ["Img", "Text", "bg", "bgBtn", "TextBtn"],
+    components: {
+      shopnow,
+    },
+  };
+  </script>
+  
+  <style scoped>
+  @import url("https://fonts.googleapis.com/css2?family=Kantumruy+Pro:ital,wght@1,300;1,400;1,500;1,600;1,700&family=Poppins:wght@300;400;500;600;800&family=Quicksand:wght@400;600;700&display=swap");
+  
+  .Cards-Box {
+    width: 482px;
+    height: 300px;
+    border: 2px solid rgba(129, 177, 61, 1);
+    box-shadow: 11px 6px 17px 0px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    margin-top: 30px;
+    margin-right: 10px;
+    margin-left: 10px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .Img {
+    margin-left: 80px;
+    width: 400px;
+  }
+  .Text {
+    font-family: "Quicksand", sans-serif;
+    font-size: 22px;
+    width: 240px;
+    font-weight: 600;
+    position: absolute;
+    top: 80px;
+    left: 40px;
+  }
+  .btn {
+    position: absolute;
+    bottom: 40px;
+    left: 40px;
+  }
+  </style>
+  

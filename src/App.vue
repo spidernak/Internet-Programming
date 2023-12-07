@@ -8,13 +8,11 @@
 <script>
 import popularproduct from "./views/popularproduct.vue";
 import Menu from "./components/Menu.vue";
-import Popularproduct from './views/popularproduct.vue';
 export default {
   name: "App",
   components: {
     popularproduct,
     Menu,
-    Popularproduct,
   },
 };
 </script>

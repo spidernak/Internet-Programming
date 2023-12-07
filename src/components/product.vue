@@ -23,10 +23,9 @@
           </div>
           <div class="">
             <div class="amount" @click="increaseNum()" v-if="button == true">
-              <!-- <AddButton /> -->
-              <ButtonAdd />
+              <AddButton />
             </div>
-            <div class="amount" @click="decreaseNum()" v-else><ButtonPlus /></div>
+            <div class="amount" @click="decreaseNum()" v-else><PlusButton /></div>
           </div>
         </div>
       </div>

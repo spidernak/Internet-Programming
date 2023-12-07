@@ -1,45 +1,55 @@
 <template>
-    <div class="flex items-center flex-col w-[137px] h-[177px] font-bold mr-[25px] flex-wrap rounded-md" :style = "{backgroundColor: bc}">
-        <img class="img"  :src="img" alt="">
-        <div class="pname">{{ pname }}</div>
-        <div class="amount">{{ amount }}</div>
+    <div class="Item-Box" :style="{ backgroundColor: bg }">
+      <img class="Img" :src="Img" alt="Product" />
+      <div class="itemname">{{ ItemName }}</div>
+      <div class="itemnumber">{{ ItemNumber }}</div>
     </div>
-</template>
-
-
-<script>
-    export default{
-        name: "category",
-        props: {
-            img: String,
-            pname: String,
-            bc: String,
-            amount: String,
-        }
-    }
-</script>
-
-<style scoped>
-     @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans&family=Quicksand:wght@300;400&display=swap');
-     @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans&family=Lato:ital,wght@0,300;0,400;1,300&family=Quicksand:wght@300;400&display=swap');
-    .pname{
-        color: var(--NestMart-TextHeading, #253D4E);
-        text-align: center;
-        font-family: Quicksand;
-        font-size: 16px;
-        font-style: normal;
-        font-weight: 700;
-        line-height: 20px; 
-        letter-spacing: -0.006px;
-    }
-    .amount{
-        color: var(--NestMart-Text-Muted, #B6B6B6);
-        text-align: center;
-        font-family: Lato;
-        font-size: 12px;
-        font-style: normal;
-        font-weight: 400;
-        line-height: 18px; 
-    }
-     
-</style>
+  </template>
+  
+  <script>
+  export default {
+    name: "Categories",
+  
+    props: ["Img", "ItemName", "bg", "ItemNumber"],
+  };
+  </script>
+  
+  <style scoped>
+  @import url("https://fonts.googleapis.com/css2?family=Kantumruy+Pro:ital,wght@1,300;1,400;1,500;1,600;1,700&family=Poppins:wght@300;400;500;600;800&family=Quicksand:wght@400;600;700&display=swap");
+  
+  .Item-Box {
+    width: 136px;
+    height: 177px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-right: 10px;
+    margin-left: 10px;
+    border: 2px solid rgba(129, 177, 61, 1);
+    box-shadow: 11px 6px 17px 0px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+  }
+  
+  .Img {
+    position: relative;
+    bottom: 16px;
+    width: 100px;
+  }
+  .itemname {
+    font-family: "Quicksand", sans-serif;
+    position: relative;
+    bottom: 15px;
+    font-size: 19px;
+    color: rgba(37, 61, 78, 1);
+    font-weight: 600;
+  }
+  .itemnumber {
+    font-family: "Quicksand", sans-serif;
+    position: relative;
+    bottom: 6px;
+    font-size: 14px;
+    color: rgba(182, 182, 182, 1);
+  }
+  </style>
+  
