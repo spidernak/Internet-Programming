@@ -1,4 +1,8 @@
 import { createRouter, createWebHistory } from 'vue-router'
+import erroepage from "../views/errorpage.vue";
+import categorypage from "../views/categorypage.vue";
+import popularproduct from "../views/popularproduct.vue";
+import productdetail from "../views/productdetail.vue";
  
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -6,17 +10,28 @@ const router = createRouter({
     {
       path: '/',
       name: 'home',
-      // component: HomeView
+      component: popularproduct,
     },
     {
-      path: '/about',
-      name: 'about',
-      // route level code-splitting
-      // this generates a separate chunk (About.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
-      // component: () => import('../views/AboutView.vue')
-    }
-  ]
-})
+      path: '/404',
+      name: 'errorpage',
+      component: erroepage,
+    },
+    {
+      path: '/:catchAll(.*)',
+      redirect:'404',
+    },
+    {
+      path: '/category/:catID',
+      name: 'category',
+      component: categorypage,
+    },
+    {
+      path: '/product/:proID',
+      name: 'product',
+      component: productdetail,
+    },
+  ],
+});
 
-export default router
+export default router;

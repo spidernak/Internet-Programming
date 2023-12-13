@@ -49,6 +49,7 @@
   import promotion from "../components/promotion.vue";
   import shopnow from "../components/shopnow.vue";
   import category from "../components/category.vue";
+  import advertisment from "../components/advertisment.vue";
   export default {
     name: "SuperProject",
     components: {
@@ -59,6 +60,7 @@
       product,
       AddButton,
       PlusButton,
+      advertisment,
     },
     data() {
       return {
