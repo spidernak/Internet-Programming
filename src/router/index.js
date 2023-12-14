@@ -1,35 +1,35 @@
-import { createRouter, createWebHistory } from 'vue-router'
-import erroepage from "../views/errorpage.vue";
-import categorypage from "../views/categorypage.vue";
+import { createRouter, createWebHistory } from "vue-router";
 import popularproduct from "../views/popularproduct.vue";
-import productdetail from "../views/productdetail.vue";
- 
+import NotFoundPage from "../views/NotFoundPage.vue";
+import CategoryDetail from "../views/CategoryPage.vue";
+import ProductDetail from "../views/ProductDetail.vue";
+
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
     {
-      path: '/',
-      name: 'home',
+      path: "/",
+      name: "home",
       component: popularproduct,
     },
     {
-      path: '/404',
-      name: 'errorpage',
-      component: erroepage,
+      path: "/404",
+      name: "NotFound",
+      component: NotFoundPage,
     },
     {
-      path: '/:catchAll(.*)',
-      redirect:'404',
+      path: "/:catchAll(.*)",
+      redirect: "404",
     },
     {
-      path: '/category/:catID',
-      name: 'category',
-      component: categorypage,
+      path: "/category/:catId",
+      name: "catgory",
+      component: CategoryDetail,
     },
     {
-      path: '/product/:proID',
-      name: 'product',
-      component: productdetail,
+      path: "/product/:proId",
+      name: "product",
+      component: ProductDetail,
     },
   ],
 });
