@@ -17,3 +17,37 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+//for category
+Route::get('/categories', function (Request $request){
+    return "Get all categories";
+});
+Route::post('/categories', function (Request $request){
+    return " Create 1 category";
+});
+Route::patch('/categories/{categoryId}', function (Request $request){
+    return "Update 1 category";
+});
+Route::delete('/categories/{categoryId}', function (Request $request){
+    return "Delete 1 category";
+});
+
+//for products
+Route::get('/products', function (Request $request){
+    return "Get all products";
+});
+Route::get('/products/{productId}', function (Request $request){
+    return "Get 1 product";
+});
+Route::post('/products', function (Request $request){
+    return " Create 1 product";
+});
+Route::patch('/products/{productId}', function (Request $request){
+    return "Update 1 product";
+});
+Route::delete('/products/{productId}', function (Request $request){
+    return "Delete 1 product";
+});
+Route::get('/categories/{categoryId}/products'. function (Request $request){
+    return "Get all products belong to categroyId";
+});
