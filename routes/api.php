@@ -1,7 +1,9 @@
 <?php
 
+use App\Http\Controllers\CategoryController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\authController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,21 +16,26 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
+Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
+//testing
+Route::middleware('auth:api')->get('/testing', function (Request $request){
+    return "HEllo";
+});
+
+
+ 
 //for category
 Route::get('/categories', function (Request $request){
     return "Get all categories";
 });
-Route::post('/categories', function (Request $request){
-    return " Create 1 category";
-});
-Route::patch('/categories/{categoryId}', function (Request $request){
+Route::middleware('auth:api')->post('/Createcategories', [CategoryController::class,'createCategories']);
+Route::middleware('auth:api')->patch('/categories/{categoryId}', function (Request $request){
     return "Update 1 category";
 });
-Route::delete('/categories/{categoryId}', function (Request $request){
+Route::middleware('auth:api')->delete('/categories/{categoryId}', function (Request $request){
     return "Delete 1 category";
 });
 
@@ -39,15 +46,19 @@ Route::get('/products', function (Request $request){
 Route::get('/products/{productId}', function (Request $request){
     return "Get 1 product";
 });
-Route::post('/products', function (Request $request){
+Route::middleware('auth:api')->post('/products', function (Request $request){
     return " Create 1 product";
 });
-Route::patch('/products/{productId}', function (Request $request){
+Route::middleware('auth:api')->patch('/products/{productId}', function (Request $request){
     return "Update 1 product";
 });
-Route::delete('/products/{productId}', function (Request $request){
+Route::middleware('auth:api')->delete('/products/{productId}', function (Request $request){
     return "Delete 1 product";
 });
-Route::get('/categories/{categoryId}/products'. function (Request $request){
+Route::get('/categories/{categoryId}/products', function (Request $request){
     return "Get all products belong to categroyId";
 });
+
+
+Route::get('/register',[authController::class,'register']);
+Route::get('/login',[authController::class,'login']);
