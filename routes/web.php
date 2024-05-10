@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\TodoController;
 use Illuminate\Support\Facades\Route;
@@ -15,7 +17,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
+Route::get('/welcome', function () {
     return view('welcome');
 });
 
@@ -29,9 +31,24 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
+Route::get('/products', function (Request $request){
+    return "Get all products";
+})->middleware(['auth','checkuser:admin']);
 
 Route::get('/todo', [TodoController::class, 'todoApp']);
+Route::get('/todo/add',[TodoController::class, 'AddForm']);
+Route::get('/todo/edit',[TodoController::class, 'EditForm']);
+Route::post('/todo/store',[TodoController::class, 'store']);
 
 
+
+//TP08
+Route::get('/', [HomeController::class, 'renderHome']);
+
+
+//product
+Route::get('/product/add', [ProductController::class, 'create']);
+Route::get('/product/edit', [ProductController::class, 'edit']);
+Route::post('/product/store', [ProductController::class, 'store']);
 
 require __DIR__.'/auth.php';

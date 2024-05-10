@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\UserController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\authController;
@@ -30,7 +31,7 @@ Route::middleware('auth:api')->get('/testing', function (Request $request){
 //for category
 Route::get('/categories', function (Request $request){
     return "Get all categories";
-});
+})->middleware('checkuser');
 Route::middleware('auth:api')->post('/Createcategories', [CategoryController::class,'createCategories']);
 Route::middleware('auth:api')->patch('/categories/{categoryId}', function (Request $request){
     return "Update 1 category";
@@ -42,7 +43,7 @@ Route::middleware('auth:api')->delete('/categories/{categoryId}', function (Requ
 //for products
 Route::get('/products', function (Request $request){
     return "Get all products";
-});
+})->middleware(['auth:api','checkuser:admin']);
 Route::get('/products/{productId}', function (Request $request){
     return "Get 1 product";
 });
@@ -62,3 +63,7 @@ Route::get('/categories/{categoryId}/products', function (Request $request){
 
 Route::get('/register',[authController::class,'register']);
 Route::get('/login',[authController::class,'login']);
+
+
+
+Route::resource('users',UserController::class);

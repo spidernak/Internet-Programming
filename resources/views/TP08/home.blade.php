@@ -6,13 +6,6 @@
     <title>Document</title>
 </head>
 <body>
-    <div>
-        
-        @include("Todo.list")
-        <a href="/todo/add">
-                <button>+ New Task</button>
-            </a>
-    </div>
+    <h1>Hello </h1>
 </body>
-
 </html>

@@ -3,16 +3,16 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Product;
+use App\Models\User;
 
-class ProductController extends Controller
+class UserController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        //
+        return response()->json(User::get());
     }
 
     /**
@@ -20,27 +20,15 @@ class ProductController extends Controller
      */
     public function create()
     {
-        $products = Product::all();
-        dd($products);
-        return view("Products.form",compact('products'));
+        //
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request	$request)
+    public function store(Request $request)
     {
-        // dd($request->all());
-
-        $products = new Product();
-        $products->name = $request->get('name');
-        $products->category_id = $request->get('category_id');
-        $products->pricing = $request->get('pricing');
-        $products->description = $request->get('description');
-        $products->image = $request->get('image');
-
-        $products->save();
-        return 'store ur product';
+        //
     }
 
     /**
@@ -54,9 +42,9 @@ class ProductController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit()
+    public function edit(string $id)
     {
-        return "adjust product";
+        //
     }
 
     /**
