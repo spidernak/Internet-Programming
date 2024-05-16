@@ -51,19 +51,11 @@ class HomeController extends Controller
         ]);
 
 
-        $name = \Str::random(30);
+        $name = $request->get('name');
         $imgName = $name . '.' . $request->file('image')->extension();
         $image = $request->file('image');
 
-        $manager = new ImageManager(['driver' => 'imagick']);
-
-        $img = $manager->make($image)->resize(500, 500, function ($constraint) {
-            $constraint->aspectRatio();
-            $constraint->upsize();
-        });
-
-        Storage::disk('minio')->put('img/gallery/' . $imgName, $image);
-        // Storage::disk('local')->put('public/img/' . $imgName, $image);
+        Storage::disk('minio')->put('img/gallery/' . $imgName, file_get_contents($image));
 
         Image::insert(
             [
@@ -76,16 +68,16 @@ class HomeController extends Controller
         return redirect()->route('home');
     }
 
-    public function test(Request $request)
-    {
-        $image = $request->file('image');
-        $originalName = $image->getClientOriginalName();
-        $fileName = time() . '-' . $originalName;
+    // public function test(Request $request)
+    // {
+    //     $image = $request->file('image');
+    //     $originalName = $image->getClientOriginalName();
+    //     $fileName = time() . '-' . $originalName;
 
 
-        dd(Storage::disk('minio')->put($fileName, $request->file('image')));
-        return response()->json(['message' => 'Image uploaded successfully!', 'url' => Storage::disk('minio')->url($fileName)]);
+    //     dd(Storage::disk('minio')->put($fileName, $request->file('image')));
+    //     return response()->json(['message' => 'Image uploaded successfully!', 'url' => Storage::disk('minio')->url($fileName)]);
 
 
-    }
+    // }
 }

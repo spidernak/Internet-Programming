@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\HomeController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -52,8 +53,9 @@ Route::delete('/products/{productId}', function (Request $request){
 //     return "Get all products belong to categroyId";
 // });
 
+Route::post('/storeImage',[HomeController::class,'storeImage']);
 
 
-Route::get('/test',function (){
-    return [ 'message' => 'success', 'data' => ['count' => 10]];
-});
+// Route::get('/test',function (){
+//     return [ 'message' => 'success', 'data' => ['count' => 10]];
+// });
